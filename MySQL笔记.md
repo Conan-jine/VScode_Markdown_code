@@ -35,7 +35,7 @@
         >用来查询数据库中表的记录(数据)。关键字：select，where 等
    4. DCL(Data Control Language)数据控制语言(了解)  
         >用来定义数据库的访问权限和安全级别，及创建用户。关键字：GRANT，REVOKE 等
-# DDL：操作数据库、表
+## DDL：操作数据库、表
 1. 操作数据库
    1. Create
       * 创建数据库：
@@ -101,7 +101,7 @@
       >drop table 表名;  
       >drop table if exists 表名;
 
-# DML : 增删改表中数据
+## DML : 增删改表中数据
 1. 添加数据
    1. 语法
       >insert into 表名(列名1, 列名2, ... , 列名n) values(值1, 值2, ... ,值n);
@@ -117,7 +117,7 @@
       >update 表名 set 列名1 = 值1, 列名2 = 值2, ... , [where 条件];
    2. 注意
       1. 如果不加任何条件, 则会将表中所有记录修改
-# DQL : 查询表中的记录
+## DQL : 查询表中的记录
 1. 语法
    >select  
    >   字段列表  
@@ -181,10 +181,87 @@
    2. 公式 : 开始的索引 = (当前的页码 - 1) * 每页显示的条数
    3. limit分页操作是MySQL的"方言"
 
-# 约束
-
-# 多表之间的关系
-
-# 范式
+## 约束
+1. 概念: 对表中的数据进行限定, 保证数据的正确性, 有效性和完整性
+2. 分类
+   1. 主键约束: primary key
+   2. 非空约束: not null
+   3. 唯一约束: unique
+   4. 外键约束: foreign key
+3. 非空约束
+   1. 创建表时添加约束
+      >CREATE TABLE stu(
+         id INT,
+         name VARCHAR(20) NOT NULL
+      );
+   2. 创建表完后, 添加非空约束
+      >ALTER TABLE stu MODIFY name VARCHAR(20) NOT NULL;
+   3. 删除name的非空约束
+      >ALTER TABLE stu MODIFY name VARCHAR(20);
+4. 唯一约束
+   1. 创建表时, 添加唯一约束
+      >CREATE TABLE stu(
+         id INT,
+         phone_number VARCHAR(20) UNIQUE
+      );
+   2. 删除唯一约束
+      >ALTER TABLE stu DROP INDEX phone_number;
+   3. 在创建表后, 添加唯一约束
+      >ALTER TABLE stu MODIFY phone_number VARCHAR(20) UNIQUE;
+5. 主键约束
+   1. 注意
+      1. 含义: 非空且唯一
+      2. 一张表只能有一个字段为主键
+      3. 主键就是表中记录的唯一标识
+   2. 在创建表时, 添加主键约束
+      >CREATE TABLE stu(
+         id INT PRIMARY KEY,
+         name VARCHAR(20)
+      );
+   3. 删除主键
+      >ALTER TABLE stu DROP PRIMARY KEY;
+   4. 创建完表后, 添加主键
+      >ALTER TABLE stu MODIFY id INT PRIMARY KEY;
+   5. 自动增长
+      1. 概念: 如果某一列时数值类型的, 使用auto_increment 可以用来完成值的自动增长
+      2. 在创建表时, 添加主键约束, 并且完成主键自增长
+         >CREATE TABLE stu(
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            name VARCHAR(20)
+         );
+      3. 删除自动增长
+         >ALTER TABLE stu MODIFY id INT;
+      4. 添加自动增长
+         >ALTER TABLE stu MODIFY id INT AUTO_INCREMENT;
+6. 外键约束
+   1. 在创建表时, 可以添加外键
+      >CREATE TABLE 表名(
+         ...,
+         外键列,
+         constraint 外键名称 foreign key (外键列名称) refernces 主表名称(主表列名称)
+      )
+   2. 删除外键
+      >ALTER TABLE 表名 DROP FOREIGN KEY 外键名称;
+   3. 创建表之后, 添加外键
+      >ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KET (外键字段名称) REFERENCES 主表名称(主表列名称);
+   4. 级联操作
+      1. 添加级联操作
+         >ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段名称) REFERENCES 主表名称(主表列名称) ON UPDATE CASCADE ON DELETE CASCADE;
+      2. 分类
+         1. 级联更新: ON UPDATE CASCADE
+         2. 级联删除: ON DELETE CASCADE
+## 多表之间的关系
+1. 分类
+   1. 一对一
+   2. 一对多, 多对一
+   3. 多对多
+2. 实现关系
+   1. 一对多, 多对一
+      * 实现方式: 在多的一方建立外键, 指向一的一方的主键
+   2. 多对多
+      * 实现方式: 借助第三张表, 作为中间表, 中间表至少包含两个字段, 均作为外键, 分别指向两张表的主键
+   3. 一对一
+      * 实现方式: 在任意一方添加唯一外键指向另一方的主键
+## 范式
 
 # 数据库的备份和还原
