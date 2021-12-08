@@ -1,15 +1,19 @@
-# 题目要求
+## 题目要求
+
 1. 定义6个类, 编写一个Employee抽象类, 里面包含一个抽象方法方法public abstract double earnings();
 2. 分别给出该类的三个子类, 重写抽象类的抽象方法, 编写一个Compay类实现对Employee 子类的管理, 实现求公司所有员工年薪方法
 3. 最后编写一个主类, 实例化一个Compay对象, 并调用求年薪方法
 
-# 题目要点
+## 题目要点
+
 1. 使用上转型对象调用方法
 
-# 题目结果
+## 题目结果
+
 >Total annual salary of the company: 692000.0
 
-# 题目代码
+## 题目代码
+
 ``` Java
 package work5;
 

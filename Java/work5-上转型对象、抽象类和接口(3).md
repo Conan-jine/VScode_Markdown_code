@@ -1,15 +1,18 @@
-# 题目要求
+## 题目要求
+
 1. 编写一个类, 要求该类实现一个接口, 该接口有如下3个抽象方法:
     >public abstract void f(int x);
     public abstract void g(int x, inty);
     public abstract double h(double x);
 2. 要求: 在应用程序的主类中使用该类创建对象, 并使用接口回调来调用方法: f()、g()和h().
 
-# 题目要点
+## 题目要点
+
 1. 接口的实现
 2. 接口的使用
 
-# 题目代码
+## 题目代码
+
 ``` Java
 package work5;
 

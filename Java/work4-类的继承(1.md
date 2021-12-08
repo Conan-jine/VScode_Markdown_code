@@ -1,13 +1,16 @@
-# 题目要求
+## 题目要求
+
 1. 一个person类作为父类, 该类中包含成员变量weight, height, 实例方法speakHello()averageHeight() 和 averageWeight()
 2. 分别编写ChinaPeople和AmericanPeople两个类继承People类, 分别根据提示重写它的三个方法, 并在ChinaPeople类中添加chinaGongfu()方法, 在AmericanPeople 类中添加americanBoxing()方法
 3. 定义一个主类Example, 在主类中创建ChinaPeople和AmericanPeople两个类的对象并调用他们的方法
 
-# 知识要点
+## 知识要点
+
 1. extends 的使用
 2. @Override 的使用
 
-# 题目代码
+## 题目代码
+
 ``` Java
 package work4;
 

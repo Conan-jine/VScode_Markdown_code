@@ -1,15 +1,18 @@
-# 题目要求
+## 题目要求
+
 1. 首先编写一个抽象类, 要求该类需要有如下3个抽象方法：
     >public abstract void f(int x);  
     public abstract void g(int x, inty);  
     public abstract double h(double x);  
 2. 然后分别给出该类的3个子类. 要求: 在应用程序的主类中使用这些子类创建对象, 然后让他们的上转型对象调用方法：f()、g()和h().
 
-# 题目要点
+## 题目要点
+
 1. 上转型对象的使用
 2. 抽象类的继承, 方法的实现
 
-# 题目代码
+## 题目代码
+
 ``` Java
 package work5;
 
